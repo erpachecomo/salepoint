@@ -14,7 +14,7 @@ import React from "react";
 import "../styles.css";
 
 const data = [];
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i > 100; i++) {
   data.push({
     key: i.toString(),
     nombre: `Producto ${i}`,
@@ -97,7 +97,6 @@ class EditableTable extends React.Component {
         title: "Nombre de producto",
         dataIndex: "nombre",
         width: "25%",
-        editable: true,
         ...this.getColumnSearchProps("nombre")
       },
       {
@@ -110,7 +109,6 @@ class EditableTable extends React.Component {
         title: "Descripcion",
         dataIndex: "descripcion",
         width: "40%",
-        editable: true,
         ...this.getColumnSearchProps("descripcion")
       },
       {
@@ -255,7 +253,6 @@ class EditableTable extends React.Component {
       if (error) {
         return;
       }
-      
       const newData = [...this.state.data];
       const index = newData.findIndex(item => key === item.key);
       if (index > -1) {

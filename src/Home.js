@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, Affix, Button, Layout, Menu, Icon } from "antd";
+import { Affix, Layout, Menu, Icon } from "antd";
 
 import Inventory from "./inventory/Inventory";
 import Sales from "./Sales/Sales";
@@ -8,7 +8,7 @@ import Users from "./Users/Users";
 import "./styles.css";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 
-const { Header, Sider, Content, Footer } = Layout;
+const { Header, Sider, Content } = Layout;
 
 class Home extends React.Component {
   state = {
@@ -36,8 +36,9 @@ class Home extends React.Component {
       );
     return (
       <Layout ref={(node) => { this.container = node; }}>
-      
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+      <Sider trigger={null} collapsible collapsed={this.state.collapsed} style={{
+      overflow: 'auto', height: '100vh', position: 'fixed', left: 0,
+    }}>
           <div className="logo" />
           <Menu  theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item className="left" key="1" onClick={() => this.setState({ selected: "Ventas" })}>
@@ -52,29 +53,16 @@ class Home extends React.Component {
               <Icon type="barcode" />
               <span>Inventario</span>
             </Menu.Item>
-            <Affix target={() => this.container} offsetBottom={this.state.bottom}>
-
-                <Menu.Item onClick={this.toggle} className="trigger" key="4">
-
-                    <Icon type={this.state.collapsed ? "right" : "left"} />
-
-                </Menu.Item>
-            </Affix>
-
-          </Menu>
+                      </Menu>
           
         </Sider>
-        <Layout>
+        
+        <Layout style={{ marginLeft: 200 }}>
           <Header style={{ background: "#fff", padding: 0 }}>
           <h1>{selected}</h1>
           </Header>
           <Content
-            style={{
-              margin: "24px 16px",
-              padding: 24,
-              background: "#fff",
-              minHeight: 280
-            }}
+          style={{ margin: '24px 16px 0', overflow: 'initial' }}
           >
             {content}
           </Content>

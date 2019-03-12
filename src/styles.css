@@ -27,4 +27,12 @@
   .left {
     text-align: left;
   }
+
+  .background-blue{
+    background: #0050b3;
+  }
+
+  .background-blue h3,b{
+    color: #ffffff;
+  }
   

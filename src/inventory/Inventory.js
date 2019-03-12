@@ -1,13 +1,8 @@
 import React from "react";
 import {
   Divider,
-  Table,
   Button,
-  Tag,
-  Input,
-  InputNumber,
-  Popconfirm,
-  Form
+  Tag
 } from "antd";
 import EdiTable from "../utils/EdiTable";
 
